@@ -6,7 +6,9 @@ public class Sectores {
     private ArrayList<Sector> sectores;
     
     // Constructor
-    public Sectores(){}
+    public Sectores(){
+    
+    }
     
     // Metodos
     public void agregarSector(Sector sector) {
