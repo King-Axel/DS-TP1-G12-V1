@@ -48,31 +48,45 @@ public class Agregar_Animal extends javax.swing.JFrame {
 
         nuevoAnimalPanel.setBackground(new java.awt.Color(0, 0, 0));
 
+        especieLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         especieLabel.setForeground(new java.awt.Color(255, 255, 255));
         especieLabel.setText("Especie");
 
+        especieComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         especieComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        edadLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(255, 255, 255));
         edadLabel.setText("Edad");
 
+        edadTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        edadLabelAños.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         edadLabelAños.setForeground(new java.awt.Color(255, 255, 255));
         edadLabelAños.setText("años");
 
+        pesoLabelKilos.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pesoLabelKilos.setForeground(new java.awt.Color(255, 255, 255));
         pesoLabelKilos.setText("kilos");
 
+        pesoTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+
+        pesoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pesoLabel.setForeground(new java.awt.Color(255, 255, 255));
         pesoLabel.setText("Peso");
 
+        paisOrigenComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         paisOrigenComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        paisOrigenLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         paisOrigenLabel.setForeground(new java.awt.Color(255, 255, 255));
         paisOrigenLabel.setText("Pais de Origen");
 
+        dietaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         dietaLabel.setForeground(new java.awt.Color(255, 255, 255));
         dietaLabel.setText("Dieta");
 
+        dietaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         dietaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         dietaComboBox.setToolTipText("");
         dietaComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -83,6 +97,7 @@ public class Agregar_Animal extends javax.swing.JFrame {
             }
         });
 
+        confirmar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmar.setText("Confirmar");
         confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         confirmar.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +106,11 @@ public class Agregar_Animal extends javax.swing.JFrame {
             }
         });
 
+        sectorLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sectorLabel.setForeground(new java.awt.Color(255, 255, 255));
         sectorLabel.setText("Sector");
 
+        sectorComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         sectorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sectorComboBox.setToolTipText("");
         sectorComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -111,30 +128,33 @@ public class Agregar_Animal extends javax.swing.JFrame {
             .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(sectorLabel)
-                    .addComponent(confirmar)
-                    .addComponent(dietaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(dietaLabel)
-                    .addComponent(paisOrigenLabel)
-                    .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(especieLabel)
-                    .addComponent(especieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(edadLabel)
-                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                                .addComponent(edadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(edadLabelAños)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(pesoLabel)
-                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                                .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(pesoLabelKilos)))))
-                .addContainerGap(37, Short.MAX_VALUE))
+                    .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(sectorLabel)
+                        .addComponent(dietaLabel)
+                        .addComponent(paisOrigenLabel)
+                        .addComponent(especieLabel)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoAnimalPanelLayout.createSequentialGroup()
+                            .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                    .addComponent(edadLabel)
+                                    .addGap(89, 89, 89))
+                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                    .addComponent(edadTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(edadLabelAños)
+                                    .addGap(18, 18, 18)))
+                            .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                    .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(pesoLabelKilos))
+                                .addComponent(pesoLabel)))
+                        .addComponent(especieComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(paisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(dietaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         nuevoAnimalPanelLayout.setVerticalGroup(
             nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,7 +166,8 @@ public class Agregar_Animal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(pesoLabelKilos)))
+                            .addComponent(pesoLabelKilos)
+                            .addComponent(edadLabelAños)))
                     .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                         .addComponent(especieLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -154,9 +175,7 @@ public class Agregar_Animal extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(edadLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(edadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(edadLabelAños))))
+                        .addComponent(edadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(paisOrigenLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -169,9 +188,9 @@ public class Agregar_Animal extends javax.swing.JFrame {
                 .addComponent(sectorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(confirmar)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(69, Short.MAX_VALUE))
         );
 
         dietaComboBox.getAccessibleContext().setAccessibleName("");
@@ -180,11 +199,15 @@ public class Agregar_Animal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
