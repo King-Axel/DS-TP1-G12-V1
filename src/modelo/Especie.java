@@ -2,7 +2,7 @@ package modelo;
 
 public class Especie {
     private String nombre;
-    private double comida;
+    private double porcentajeComida;
     
     // Setter
     public void setNombre(String nombre) {

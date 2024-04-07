@@ -10,7 +10,6 @@ public class Sector {
     private double longitud;
     private ArrayList<Animal> animales;
     
-    
     // Metodos
     public void agregarAnimal(Animal animal) {
         animales.add(animal);
