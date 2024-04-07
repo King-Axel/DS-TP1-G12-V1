@@ -37,12 +37,14 @@ public class Menu extends javax.swing.JFrame {
         kilosTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         panelMenu.setBackground(new java.awt.Color(0, 0, 0));
 
         botonNuevoAnimal.setBackground(new java.awt.Color(0, 0, 0));
         botonNuevoAnimal.setForeground(new java.awt.Color(255, 255, 255));
         botonNuevoAnimal.setText("Agregar Animal");
+        botonNuevoAnimal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonNuevoAnimal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonNuevoAnimalActionPerformed(evt);
@@ -52,6 +54,7 @@ public class Menu extends javax.swing.JFrame {
         botonCalcularComida.setBackground(new java.awt.Color(0, 0, 0));
         botonCalcularComida.setForeground(new java.awt.Color(255, 255, 255));
         botonCalcularComida.setText("Calcular Comida");
+        botonCalcularComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         botonCalcularComida.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botonCalcularComidaActionPerformed(evt);
@@ -147,7 +150,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonNuevoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoAnimalActionPerformed
-        // TODO add your handling code here:
+        Agregar_Animal agregarAnimal = new Agregar_Animal();
+        agregarAnimal.setVisible(true);
     }//GEN-LAST:event_botonNuevoAnimalActionPerformed
 
     private void botonCalcularComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularComidaActionPerformed

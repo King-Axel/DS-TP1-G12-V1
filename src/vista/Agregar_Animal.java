@@ -26,46 +26,181 @@ public class Agregar_Animal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        nuevoAnimalPanel = new javax.swing.JPanel();
+        especieLabel = new javax.swing.JLabel();
+        especieComboBox = new javax.swing.JComboBox<>();
+        edadLabel = new javax.swing.JLabel();
+        edadTextField = new javax.swing.JTextField();
+        edadLabelAños = new javax.swing.JLabel();
+        pesoLabelKilos = new javax.swing.JLabel();
+        pesoTextField = new javax.swing.JTextField();
+        pesoLabel = new javax.swing.JLabel();
+        paisOrigenComboBox = new javax.swing.JComboBox<>();
+        paisOrigenLabel = new javax.swing.JLabel();
+        dietaLabel = new javax.swing.JLabel();
+        dietaComboBox = new javax.swing.JComboBox<>();
+        confirmar = new javax.swing.JButton();
+        sectorLabel = new javax.swing.JLabel();
+        sectorComboBox = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        nuevoAnimalPanel.setBackground(new java.awt.Color(0, 0, 0));
 
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("jLabel1");
+        especieLabel.setForeground(new java.awt.Color(255, 255, 255));
+        especieLabel.setText("Especie");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel1)
-                .addContainerGap(338, Short.MAX_VALUE))
+        especieComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        edadLabel.setForeground(new java.awt.Color(255, 255, 255));
+        edadLabel.setText("Edad");
+
+        edadLabelAños.setForeground(new java.awt.Color(255, 255, 255));
+        edadLabelAños.setText("años");
+
+        pesoLabelKilos.setForeground(new java.awt.Color(255, 255, 255));
+        pesoLabelKilos.setText("kilos");
+
+        pesoLabel.setForeground(new java.awt.Color(255, 255, 255));
+        pesoLabel.setText("Peso");
+
+        paisOrigenComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        paisOrigenLabel.setForeground(new java.awt.Color(255, 255, 255));
+        paisOrigenLabel.setText("Pais de Origen");
+
+        dietaLabel.setForeground(new java.awt.Color(255, 255, 255));
+        dietaLabel.setText("Dieta");
+
+        dietaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        dietaComboBox.setToolTipText("");
+        dietaComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        dietaComboBox.setName(""); // NOI18N
+        dietaComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dietaComboBoxActionPerformed(evt);
+            }
+        });
+
+        confirmar.setText("Confirmar");
+        confirmar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        confirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarActionPerformed(evt);
+            }
+        });
+
+        sectorLabel.setForeground(new java.awt.Color(255, 255, 255));
+        sectorLabel.setText("Sector");
+
+        sectorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        sectorComboBox.setToolTipText("");
+        sectorComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sectorComboBox.setName(""); // NOI18N
+        sectorComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sectorComboBoxActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout nuevoAnimalPanelLayout = new javax.swing.GroupLayout(nuevoAnimalPanel);
+        nuevoAnimalPanel.setLayout(nuevoAnimalPanelLayout);
+        nuevoAnimalPanelLayout.setHorizontalGroup(
+            nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(sectorLabel)
+                    .addComponent(confirmar)
+                    .addComponent(dietaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dietaLabel)
+                    .addComponent(paisOrigenLabel)
+                    .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(especieLabel)
+                    .addComponent(especieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(edadLabel)
+                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                .addComponent(edadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edadLabelAños)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pesoLabel)
+                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pesoLabelKilos)))))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jLabel1)
-                .addContainerGap(258, Short.MAX_VALUE))
+        nuevoAnimalPanelLayout.setVerticalGroup(
+            nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                        .addComponent(pesoLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(pesoLabelKilos)))
+                    .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                        .addComponent(especieLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(especieComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(edadLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(edadTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(edadLabelAños))))
+                .addGap(27, 27, 27)
+                .addComponent(paisOrigenLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(dietaLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dietaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sectorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(confirmar)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
+
+        dietaComboBox.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dietaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dietaComboBoxActionPerformed
+
+    private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
+        dispose();
+    }//GEN-LAST:event_confirmarActionPerformed
+
+    private void sectorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectorComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sectorComboBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -103,7 +238,21 @@ public class Agregar_Animal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton confirmar;
+    private javax.swing.JComboBox<String> dietaComboBox;
+    private javax.swing.JLabel dietaLabel;
+    private javax.swing.JLabel edadLabel;
+    private javax.swing.JLabel edadLabelAños;
+    private javax.swing.JTextField edadTextField;
+    private javax.swing.JComboBox<String> especieComboBox;
+    private javax.swing.JLabel especieLabel;
+    private javax.swing.JPanel nuevoAnimalPanel;
+    private javax.swing.JComboBox<String> paisOrigenComboBox;
+    private javax.swing.JLabel paisOrigenLabel;
+    private javax.swing.JLabel pesoLabel;
+    private javax.swing.JLabel pesoLabelKilos;
+    private javax.swing.JTextField pesoTextField;
+    private javax.swing.JComboBox<String> sectorComboBox;
+    private javax.swing.JLabel sectorLabel;
     // End of variables declaration//GEN-END:variables
 }
