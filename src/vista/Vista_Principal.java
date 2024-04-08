@@ -16,9 +16,6 @@ public class Vista_Principal extends javax.swing.JFrame {
     public Vista_Principal() {
         initComponents();
         setVisible(true);
-        
-        Menu menu = new Menu();
-        menu.setVisible(true);
     }
 
     /**
@@ -46,6 +43,15 @@ public class Vista_Principal extends javax.swing.JFrame {
         sectorEspecies3 = new javax.swing.JLabel();
         sectorCantidadAnimales3 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        panelMenu = new javax.swing.JPanel();
+        botonNuevoAnimal = new javax.swing.JButton();
+        botonCalcularComida = new javax.swing.JButton();
+        kilosCarnivorosLabel = new javax.swing.JLabel();
+        kilosCarnivoros = new javax.swing.JLabel();
+        kilosHerbivorosLabel = new javax.swing.JLabel();
+        kilosHerbivoros = new javax.swing.JLabel();
+        kilosTotalLabel = new javax.swing.JLabel();
+        kilosTotal = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -157,14 +163,16 @@ public class Vista_Principal extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(sectorPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(sectorPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sectorEspecies3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sectorPanel3Layout.createSequentialGroup()
                 .addGap(0, 55, Short.MAX_VALUE)
                 .addComponent(sectorCantidadAnimales3)
                 .addGap(28, 28, 28))
+            .addGroup(sectorPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(sectorEspecies3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         sectorPanel3Layout.setVerticalGroup(
             sectorPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -173,11 +181,116 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addComponent(sectorNumero3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sectorEspecies3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(sectorCantidadAnimales3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel3)
                 .addContainerGap(23, Short.MAX_VALUE))
+        );
+
+        panelMenu.setBackground(new java.awt.Color(0, 0, 0));
+
+        botonNuevoAnimal.setBackground(new java.awt.Color(0, 0, 0));
+        botonNuevoAnimal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonNuevoAnimal.setForeground(new java.awt.Color(255, 255, 255));
+        botonNuevoAnimal.setText("Agregar Animal");
+        botonNuevoAnimal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonNuevoAnimal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonNuevoAnimalActionPerformed(evt);
+            }
+        });
+
+        botonCalcularComida.setBackground(new java.awt.Color(0, 0, 0));
+        botonCalcularComida.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botonCalcularComida.setForeground(new java.awt.Color(255, 255, 255));
+        botonCalcularComida.setText("Calcular Comida");
+        botonCalcularComida.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        botonCalcularComida.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonCalcularComidaActionPerformed(evt);
+            }
+        });
+
+        kilosCarnivorosLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosCarnivorosLabel.setForeground(new java.awt.Color(255, 255, 255));
+        kilosCarnivorosLabel.setText("Kgs Carnivoros");
+
+        kilosCarnivoros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosCarnivoros.setForeground(new java.awt.Color(255, 255, 255));
+        kilosCarnivoros.setText("0");
+        kilosCarnivoros.setToolTipText("");
+
+        kilosHerbivorosLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosHerbivorosLabel.setForeground(new java.awt.Color(255, 255, 255));
+        kilosHerbivorosLabel.setText("Kgs Herbivoros");
+
+        kilosHerbivoros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosHerbivoros.setForeground(new java.awt.Color(255, 255, 255));
+        kilosHerbivoros.setText("0");
+        kilosHerbivoros.setToolTipText("");
+
+        kilosTotalLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosTotalLabel.setForeground(new java.awt.Color(255, 255, 255));
+        kilosTotalLabel.setText("Kgs Total");
+
+        kilosTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        kilosTotal.setForeground(new java.awt.Color(255, 255, 255));
+        kilosTotal.setText("0");
+        kilosTotal.setToolTipText("");
+
+        javax.swing.GroupLayout panelMenuLayout = new javax.swing.GroupLayout(panelMenu);
+        panelMenu.setLayout(panelMenuLayout);
+        panelMenuLayout.setHorizontalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(botonCalcularComida, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(botonNuevoAnimal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMenuLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kilosHerbivorosLabel)
+                    .addComponent(kilosCarnivorosLabel))
+                .addGap(46, 46, 46))
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGroup(panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(57, 57, 57)
+                        .addComponent(kilosTotalLabel))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(91, 91, 91)
+                        .addComponent(kilosCarnivoros))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(kilosHerbivoros))
+                    .addGroup(panelMenuLayout.createSequentialGroup()
+                        .addGap(89, 89, 89)
+                        .addComponent(kilosTotal)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelMenuLayout.setVerticalGroup(
+            panelMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMenuLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(botonNuevoAnimal)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(botonCalcularComida)
+                .addGap(18, 18, 18)
+                .addComponent(kilosCarnivorosLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kilosCarnivoros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kilosHerbivorosLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kilosHerbivoros)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(kilosTotalLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(kilosTotal)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -189,26 +302,33 @@ public class Vista_Principal extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(sectorPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(sectorPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addGap(102, 102, 102)
+                .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(76, 76, 76))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(65, 65, 65)
                     .addComponent(sectorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(351, Short.MAX_VALUE)))
+                    .addContainerGap(378, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(228, Short.MAX_VALUE)
-                .addComponent(sectorPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sectorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(69, 69, 69))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(174, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(sectorPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(sectorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(69, 69, 69))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(62, 62, 62)
                     .addComponent(sectorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(378, Short.MAX_VALUE)))
+                    .addContainerGap(423, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -228,6 +348,15 @@ public class Vista_Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void botonNuevoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoAnimalActionPerformed
+        Agregar_Animal agregarAnimal = new Agregar_Animal();
+        agregarAnimal.setVisible(true);
+    }//GEN-LAST:event_botonNuevoAnimalActionPerformed
+
+    private void botonCalcularComidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonCalcularComidaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_botonCalcularComidaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -265,10 +394,19 @@ public class Vista_Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonCalcularComida;
+    private javax.swing.JButton botonNuevoAnimal;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel kilosCarnivoros;
+    private javax.swing.JLabel kilosCarnivorosLabel;
+    private javax.swing.JLabel kilosHerbivoros;
+    private javax.swing.JLabel kilosHerbivorosLabel;
+    private javax.swing.JLabel kilosTotal;
+    private javax.swing.JLabel kilosTotalLabel;
+    private javax.swing.JPanel panelMenu;
     private javax.swing.JLabel sectorCantidadAnimales1;
     private javax.swing.JLabel sectorCantidadAnimales2;
     private javax.swing.JLabel sectorCantidadAnimales3;
