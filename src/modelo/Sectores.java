@@ -6,7 +6,11 @@ public class Sectores {
     private ArrayList<Sector> sectores;
     
     // Constructor
-    public Sectores(){}
+
+    public Sectores(ArrayList<Sector> sectores) {
+        this.sectores = sectores;
+    }
+
     
     // Metodos
     public void agregarSector(Sector sector) {
