@@ -10,13 +10,12 @@ public class Sector {
     private double longitud;
     private ArrayList<Animal> animales;
 
-    public Sector(int numero, Empleado encargado, int capacidad, double latitud, double longitud, ArrayList<Animal> animales) {
+    public Sector(int numero, Empleado encargado, int capacidad, double latitud, double longitud) {
         this.numero = numero;
         this.encargado = encargado;
         this.capacidad = capacidad;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.animales = animales;
     }
 
     public Sector() {
