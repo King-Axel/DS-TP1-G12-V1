@@ -41,8 +41,8 @@ public class JavaApplication1 {
 
 //        Creacion de animales
 //                                  Especie, Pais, Edad, Peso, Extra de comida que comen los herviboros 
-        Animal animal1 = new Animal(tigre, india, 8, 200, 0);
-        Animal animal2 = new Animal(leon, tanzania, 10 , 210, 0);
+        Animal animal1 = new Animal(tigre, india, 8, 200);
+        Animal animal2 = new Animal(leon, tanzania, 10 , 210);
         
         Animal animal3 = new Animal(jirafa, somalia, 17, 1000, 10);
         Animal animal4 = new Animal(cebra, sudan, 15 , 370, 5);
