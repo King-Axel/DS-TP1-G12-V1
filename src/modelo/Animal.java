@@ -1,17 +1,20 @@
 package modelo;
 
-public abstract class Animal {
+public class Animal {
     private int edad;
     private double peso;
     private Pais paisOrigen;
-    private Especie especie;
+    private Object especie;
+    private int extraComidaKgs; // Solo para animales de una especie Herbivora
     
-    // Constructor /////////////////////////////
-    public Animal(int edad, double peso, Pais paisOrigen, Especie especie) {
+    // Constructores /////////////////////////////
+    // Para un animal de especie carnivora
+    public Animal(Object especie, Pais paisOrigen, int edad, double peso, int extraComidaKgs) {
         this.edad = edad;
         this.peso = peso;
         this.paisOrigen = paisOrigen;
         this.especie = especie;
+        this.extraComidaKgs = extraComidaKgs;
     }
     
     // Setters /////////////////////////////////
@@ -27,8 +30,12 @@ public abstract class Animal {
         this.paisOrigen = paisOrigen;
     }
     
-    public void setEspecie(Especie especie) {
+    public void setEspecie(Object especie) {
         this.especie = especie;
+    }
+    
+    public void setExtraComidaKgs(int extraComidaKgs){
+        this.extraComidaKgs = extraComidaKgs;
     }
     
     // Getters //////////////////////////////////
@@ -44,7 +51,11 @@ public abstract class Animal {
         return paisOrigen;
     }
     
-    public Especie getEspecie() {
+    public Object getEspecie() {
         return especie;
+    }
+    
+    public int getExtraComidaKgs() {
+        return extraComidaKgs;
     }
 }

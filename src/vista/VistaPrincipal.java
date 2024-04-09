@@ -8,12 +8,12 @@ package vista;
  *
  * @author Dilan
  */
-public class Vista_Principal extends javax.swing.JFrame {
+public class VistaPrincipal extends javax.swing.JFrame {
 
     /**
      * Creates new form Vista_Principal
      */
-    public Vista_Principal() {
+    public VistaPrincipal() {
         initComponents();
         setVisible(true);
     }
@@ -350,7 +350,7 @@ public class Vista_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonNuevoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoAnimalActionPerformed
-        Agregar_Animal agregarAnimal = new Agregar_Animal();
+        AgregarAnimal agregarAnimal = new AgregarAnimal();
         agregarAnimal.setVisible(true);
     }//GEN-LAST:event_botonNuevoAnimalActionPerformed
 
@@ -375,20 +375,21 @@ public class Vista_Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Vista_Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(VistaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Vista_Principal().setVisible(true);
+                new VistaPrincipal().setVisible(true);
             }
         });
     }

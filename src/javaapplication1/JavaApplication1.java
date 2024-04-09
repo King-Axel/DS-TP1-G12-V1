@@ -3,44 +3,52 @@ package javaapplication1;
 
 import java.util.ArrayList;
 import modelo.Animal;
-import modelo.Carnivoro;
+import modelo.EspecieCarnivora;
 import modelo.Empleado;
-import modelo.Especie;
-import modelo.Herbivoro;
+import modelo.EspecieHerbivora;
 import modelo.Pais;
 import modelo.Sector;
 import modelo.Sectores;
-import vista.Vista_Principal;
+import vista.VistaPrincipal;
 
 public class JavaApplication1 {
 
     public static void main(String[] args) {
-        Vista_Principal ventana = new Vista_Principal();
+        VistaPrincipal ventana = new VistaPrincipal();
         
         ArrayList<Animal> listaAnimales = new ArrayList<>();
         ArrayList<Sector> listaSectores = new ArrayList<>();
-        
-        Pais pais1 = new Pais("Congo");
-        Pais pais2 = new Pais("Nigeria");
-        Pais pais3 = new Pais("Yemen");
+
+// Creacion de paises
+        Pais congo = new Pais("Congo");
+        Pais nigeria = new Pais("Nigeria");
+        Pais yemen = new Pais("Yemen");
+        Pais india = new Pais("India");
+        Pais tanzania = new Pais("Tanzania");
+        Pais somalia = new Pais("Somalia");
+        Pais sudan = new Pais("Sudan");
+        Pais etiopia = new Pais("Etiopia");
         
 //      Especies carnivoras
-        Especie especie1 = new Especie("Tigre", 20);
-        Especie especie2 = new Especie("Leon", 20);
+//                                                 Nombre de especie, Porcentaje de su peso en carne que consume
+        EspecieCarnivora tigre = new EspecieCarnivora("Tigre", 0.5);
+        EspecieCarnivora leon = new EspecieCarnivora("Leon", 0.85);
         
-//      Aca ojo con el porcentaje de comida que es solo de los carnivoros, pero queda como 0 en los hervivoros
-        Especie especie3 = new Especie("Jirafa", 0);
-        Especie especie4 = new Especie("Cebra", 0);
+//      Especies Herbivoras
+//                                                 Nombre de Especie
+        EspecieHerbivora jirafa = new EspecieHerbivora("Jirafa");
+        EspecieHerbivora cebra = new EspecieHerbivora("Cebra");
 
-//        Edad, peso, pais, especie
-        Carnivoro animal1 = new Carnivoro(10, 150, pais1 , especie1);
-        Carnivoro animal2 = new Carnivoro(12, 210, pais2 , especie2);
+//        Creacion de animales
+//                                  Especie, Pais, Edad, Peso, Extra de comida que comen los herviboros 
+        Animal animal1 = new Animal(tigre, india, 8, 200, 0);
+        Animal animal2 = new Animal(leon, tanzania, 10 , 210, 0);
         
-        Herbivoro animal3 = new Herbivoro(9, 1000, pais3 , especie3);
-        Herbivoro animal4 = new Herbivoro(2, 80, pais3 , especie4);
+        Animal animal3 = new Animal(jirafa, somalia, 17, 1000, 10);
+        Animal animal4 = new Animal(cebra, sudan, 15 , 370, 5);
                 
         
-//        Nombre, dni, domicilio
+//        Creacion de Empleados
         Empleado empleado1 = new Empleado("Patricio Reyes", 45321584, "Siempre viva 124");
         Empleado empleado2 = new Empleado("Ramiro Pereyra", 36541247, "Avenida Rosario");
         Empleado empleado3 = new Empleado("Ana Villanueva", 41521457, "Siempre viva 124");

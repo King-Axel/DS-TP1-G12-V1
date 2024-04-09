@@ -1,12 +1,10 @@
 package modelo;
 
-public class Especie {
+public abstract class Especie {
     private String nombre;
-    private double porcentajeComida;
 
-    public Especie(String nombre, double porcentajeComida) {
+    public Especie(String nombre) {
         this.nombre = nombre;
-        this.porcentajeComida = porcentajeComida;
     }
     
     
