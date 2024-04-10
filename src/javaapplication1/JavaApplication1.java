@@ -3,10 +3,12 @@ package javaapplication1;
 
 import java.util.ArrayList;
 import modelo.Animal;
+import modelo.Especies;
 import modelo.EspecieCarnivora;
 import modelo.Empleado;
 import modelo.EspecieHerbivora;
 import modelo.Pais;
+import modelo.Paises;
 import modelo.Sector;
 import modelo.Sectores;
 import vista.VistaPrincipal;
@@ -18,6 +20,9 @@ public class JavaApplication1 {
         
         ArrayList<Animal> listaAnimales = new ArrayList<>();
         ArrayList<Sector> listaSectores = new ArrayList<>();
+        
+        Paises listaPaises = new Paises();
+        Especies especies = new Especies();
 
 // Creacion de paises
         Pais congo = new Pais("Congo");
@@ -29,6 +34,11 @@ public class JavaApplication1 {
         Pais sudan = new Pais("Sudan");
         Pais etiopia = new Pais("Etiopia");
         
+    // Agregando paises a la clase Paises que contiene un arrayList con todos los paises que se crearon
+        Pais[] paisesArray = {congo, nigeria, yemen, india, tanzania, somalia, sudan, etiopia};
+
+        listaPaises.agregarPaises(paisesArray);
+        
 //      Especies carnivoras
 //                                                 Nombre de especie, Porcentaje de su peso en carne que consume
         EspecieCarnivora tigre = new EspecieCarnivora("Tigre", 0.5);
@@ -38,7 +48,11 @@ public class JavaApplication1 {
 //                                                 Nombre de Especie
         EspecieHerbivora jirafa = new EspecieHerbivora("Jirafa");
         EspecieHerbivora cebra = new EspecieHerbivora("Cebra");
-
+        
+    // Agregando todas las especies a un array de especies
+        Object[] especiesArray = {tigre, leon, jirafa, cebra, yemen};
+        especies.agregarEspecies(especiesArray);
+        
 //        Creacion de animales
 //                                  Especie, Pais, Edad, Peso, Extra de comida que comen los herviboros 
         Animal animal1 = new Animal(tigre, india, 8, 200);

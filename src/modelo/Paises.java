@@ -12,6 +12,19 @@ import java.util.ArrayList;
  */
 public class Paises {
     private ArrayList<Pais> paises;
+    
+    public Paises(){
+        this.paises = new ArrayList<>();
+    }
+    
+    public void agregarPaises(Pais paisesArray[]){
+        System.out.println("Agregando paises al ArrayList<>()");
+        
+        for(int i = 0; i < paisesArray.length; i++) {
+            this.paises.add(paisesArray[i]);
+            System.out.println("Se ha agregado el pais: " + paisesArray[i].getNombre());
+        }
+    }
 
     public ArrayList<Pais> getPaises() {
         return paises;
