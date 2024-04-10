@@ -26,7 +26,7 @@ public class Animal {
     // Para un animal de especie herbivora
     public Animal(Object especie, Pais paisOrigen, int edad, double peso, int extraComidaKgs) {
         String nombreClase = especie.getClass().getName();
-        if(nombreClase == "modelo.EspecieHerbivora" || nombreClase == "modelo.EspecieCarnivora"){
+        if(nombreClase.endsWith("modelo.EspecieHerbivora") || nombreClase.endsWith("modelo.EspecieCarnivora")){
             this.especie = especie;
         } else {
             throw new IllegalArgumentException("La especie debe ser del tipo EspecieHerbivora o EspecieCarnivora");

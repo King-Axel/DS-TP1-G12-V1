@@ -10,4 +10,14 @@ public class EspecieHerbivora extends Especie {
     public double calcularAlimento() {
         return 0;
     }
+    
+    // Setter
+    public void setNombre(String nombre){
+        super.setNombre(nombre);
+    }
+    
+    // Getter
+    public String getNombre(){
+        return super.getNombre();
+    }
 }

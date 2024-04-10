@@ -16,13 +16,11 @@ import vista.VistaPrincipal;
 public class JavaApplication1 {
 
     public static void main(String[] args) {
-        VistaPrincipal ventana = new VistaPrincipal();
-        
         ArrayList<Animal> listaAnimales = new ArrayList<>();
         ArrayList<Sector> listaSectores = new ArrayList<>();
         
         Paises listaPaises = new Paises();
-        Especies especies = new Especies();
+        Especies listaEspecies = new Especies();
 
 // Creacion de paises
         Pais congo = new Pais("Congo");
@@ -51,7 +49,7 @@ public class JavaApplication1 {
         
     // Agregando todas las especies a un array de especies
         Object[] especiesArray = {tigre, leon, jirafa, cebra, yemen};
-        especies.agregarEspecies(especiesArray);
+        listaEspecies.agregarEspecies(especiesArray);
         
 //        Creacion de animales
 //                                  Especie, Pais, Edad, Peso, Extra de comida que comen los herviboros 
@@ -95,6 +93,7 @@ public class JavaApplication1 {
         grupoSectores.agregarSector(sector2);
         grupoSectores.agregarSector(sector3);
         
+        VistaPrincipal ventana = new VistaPrincipal(listaPaises, listaEspecies);
         
     }
     

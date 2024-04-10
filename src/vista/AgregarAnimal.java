@@ -4,19 +4,83 @@
  */
 package vista;
 
+import modelo.Especie;
+import modelo.EspecieCarnivora;
+import modelo.EspecieHerbivora;
+import modelo.Especies;
+import modelo.Pais;
+import modelo.Paises;
+
+import javax.swing.DefaultComboBoxModel;
+
 /**
  *
  * @author Dilan
  */
 public class AgregarAnimal extends javax.swing.JFrame {
-
+    private Paises listaPaises;
+    private Especies listaEspecies;
+    
     /**
      * Creates new form Agregar_Animal
      */
-    public AgregarAnimal() {
+    public AgregarAnimal(Paises listaPaises, Especies listaEspecies) {
+        this.listaPaises = listaPaises;
+        this.listaEspecies = listaEspecies;
+        
         initComponents();
+        llenarComboPaises(this.listaPaises);
+        // llenarComboDieta();
+        // FALTA TERMINAR
+        llenarComboEspecies(this.listaEspecies);
     }
-
+    
+    // Metodos //////////////////////////////////////////////////////////////////////////
+    public void llenarComboPaises(Paises listaPaises){
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        
+        for(int i = 0; i < listaPaises.getPaises().size(); i++){
+            String opcion = (i + 1) + ". " + listaPaises.getPaises().get(i).getNombre();
+            modelo.addElement(opcion);
+        }
+        
+        paisOrigenComboBox.setModel(modelo);
+    }
+    
+    /*public void llenarComboDieta(){
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        
+        modelo.addElement("Carnívoro");
+        modelo.addElement("Herbívoro");
+        
+        dietaComboBox.setModel(modelo);
+    }*/
+    
+    public void llenarComboEspecies(Especies listaEspecies){
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        
+        // FALTA TERMINAR
+        for(int i = 0; i < listaEspecies.getEspecies().size(); i++){
+            // Obtener el nombre de la clase de la especie iesima
+            String tipoEspecie = listaEspecies.getEspecies().get(i).getClass().getName();
+            String nombreEspecie = "";
+            
+            if(tipoEspecie.endsWith("Carnivoro")){
+                nombreEspecie = nombreEspecie + ((EspecieCarnivora) listaEspecies.getEspecies().get(i)).getNombre();
+            } else
+            if (tipoEspecie.endsWith("Herbivoro")){
+                nombreEspecie = nombreEspecie + ((EspecieHerbivora) listaEspecies.getEspecies().get(i)).getNombre();
+            } else {
+                
+            }
+            
+            modelo.addElement(nombreEspecie);
+        }
+        
+        especieComboBox.setModel(modelo);
+    }
+    /////////////////////////////////////////////////////////////////////////////////////
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,8 +101,6 @@ public class AgregarAnimal extends javax.swing.JFrame {
         pesoLabel = new javax.swing.JLabel();
         paisOrigenComboBox = new javax.swing.JComboBox<>();
         paisOrigenLabel = new javax.swing.JLabel();
-        dietaLabel = new javax.swing.JLabel();
-        dietaComboBox = new javax.swing.JComboBox<>();
         confirmar = new javax.swing.JButton();
         sectorLabel = new javax.swing.JLabel();
         sectorComboBox = new javax.swing.JComboBox<>();
@@ -76,26 +138,12 @@ public class AgregarAnimal extends javax.swing.JFrame {
         pesoLabel.setText("Peso");
 
         paisOrigenComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        paisOrigenComboBox.setMaximumRowCount(30);
         paisOrigenComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         paisOrigenLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         paisOrigenLabel.setForeground(new java.awt.Color(255, 255, 255));
         paisOrigenLabel.setText("Pais de Origen");
-
-        dietaLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        dietaLabel.setForeground(new java.awt.Color(255, 255, 255));
-        dietaLabel.setText("Dieta");
-
-        dietaComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        dietaComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        dietaComboBox.setToolTipText("");
-        dietaComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        dietaComboBox.setName(""); // NOI18N
-        dietaComboBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                dietaComboBoxActionPerformed(evt);
-            }
-        });
 
         confirmar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         confirmar.setText("Confirmar");
@@ -128,10 +176,8 @@ public class AgregarAnimal extends javax.swing.JFrame {
             .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(sectorLabel)
-                        .addComponent(dietaLabel)
                         .addComponent(paisOrigenLabel)
                         .addComponent(especieLabel)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoAnimalPanelLayout.createSequentialGroup()
@@ -152,14 +198,18 @@ public class AgregarAnimal extends javax.swing.JFrame {
                                 .addComponent(pesoLabel)))
                         .addComponent(especieComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(paisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(dietaComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         nuevoAnimalPanelLayout.setVerticalGroup(
             nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(33, 33, 33)
+                .addComponent(sectorLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
                 .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                         .addComponent(pesoLabel)
@@ -181,19 +231,9 @@ public class AgregarAnimal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(dietaLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dietaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sectorLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
                 .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
-
-        dietaComboBox.getAccessibleContext().setAccessibleName("");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,17 +245,11 @@ public class AgregarAnimal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void dietaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dietaComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dietaComboBoxActionPerformed
 
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         dispose();
@@ -225,46 +259,8 @@ public class AgregarAnimal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_sectorComboBoxActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AgregarAnimal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AgregarAnimal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AgregarAnimal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AgregarAnimal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AgregarAnimal().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmar;
-    private javax.swing.JComboBox<String> dietaComboBox;
-    private javax.swing.JLabel dietaLabel;
     private javax.swing.JLabel edadLabel;
     private javax.swing.JLabel edadLabelAños;
     private javax.swing.JTextField edadTextField;

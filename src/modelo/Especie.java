@@ -7,7 +7,6 @@ public abstract class Especie {
         this.nombre = nombre;
     }
     
-    
     // Setter
     public void setNombre(String nombre) {
         this.nombre = nombre;

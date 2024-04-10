@@ -14,8 +14,16 @@ public class EspecieCarnivora extends Especie {
         this.porcentajeComida = porcentajeComida;
     }
     
+    public void setNombre(String nombre){
+        super.setNombre(nombre);
+    }
+    
     // Getter
     public double getPorcentajeComida(){
         return porcentajeComida;
+    }
+    
+    public String getNombre(){
+        return super.getNombre();
     }
 }
