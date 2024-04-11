@@ -84,12 +84,12 @@ public class JavaApplication1 {
 //            System.out.println("Pais de Origen: " + animal.getPaisOrigen().getNombre());
 //        }
         
-        Sectores grupoSectores = new Sectores();
+        Sectores listaSectores = new Sectores();
         
         Sector[] sectores = {sector1, sector2, sector3};
-        grupoSectores.agregarSectores(sectores);
+        listaSectores.agregarSectores(sectores);
         
-        VistaPrincipal ventana = new VistaPrincipal(listaPaises, listaEspecies);
+        VistaPrincipal ventana = new VistaPrincipal(listaPaises, listaEspecies, listaSectores);
     }
     
 }

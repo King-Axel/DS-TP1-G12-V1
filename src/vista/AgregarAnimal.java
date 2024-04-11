@@ -5,13 +5,13 @@
 package vista;
 
 import modelo.Especie;
-import modelo.EspecieCarnivora;
-import modelo.EspecieHerbivora;
 import modelo.Especies;
-import modelo.Pais;
 import modelo.Paises;
+import modelo.Sector;
+import modelo.Sectores;
 
 import javax.swing.DefaultComboBoxModel;
+import modelo.Animal;
 
 /**
  *
@@ -20,18 +20,24 @@ import javax.swing.DefaultComboBoxModel;
 public class AgregarAnimal extends javax.swing.JFrame {
     private Paises listaPaises;
     private Especies listaEspecies;
+    private Sectores listaSectores;
     
     /**
      * Creates new form Agregar_Animal
+     * @param listaPaises
+     * @param listaEspecies
+     * @param listaSectores
      */
-    public AgregarAnimal(Paises listaPaises, Especies listaEspecies) {
+    public AgregarAnimal(Paises listaPaises, Especies listaEspecies, Sectores listaSectores) {
         this.listaPaises = listaPaises;
         this.listaEspecies = listaEspecies;
+        this.listaSectores = listaSectores;
         
         initComponents();
+        // IN PROGRESS
+        llenarComboSectores(this.listaSectores);
         llenarComboPaises(this.listaPaises);
         // llenarComboDieta();
-        // FALTA TERMINAR
         llenarComboEspecies(this.listaEspecies);
     }
     
@@ -62,6 +68,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
         for(int i = 0; i < listaEspecies.getEspecies().size(); i++){
             // Obtener el nombre de la clase de la especie iesima
             String tipoEspecie = listaEspecies.getEspecies().get(i).getClass().getName().substring(14);
+            
             String nombreEspecie = ((Especie) listaEspecies.getEspecies().get(i)).getNombre();
             
             String opcion = nombreEspecie + " (" + tipoEspecie + ")";
@@ -70,6 +77,68 @@ public class AgregarAnimal extends javax.swing.JFrame {
         }
         
         especieComboBox.setModel(modelo);
+    }
+    
+    public void llenarComboSectores(Sectores listaSectores){
+        // IN PROGRESS
+        DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
+        
+        String formatoOpcion = """
+                            %d. Capacidad: %s / %s
+                            Especies de tipo: %s
+                            A cargo de %s
+                        """;
+        
+        for(int i = 0; i < listaSectores.getSectores().size(); i++){
+            // Obtener el sector iesimo del ArrayList
+            Sector sector = (Sector) listaSectores.getSectores().get(i);
+            
+            int sectorNumero = sector.getNumero();
+            int sectorCantidadAnimales = sector.getAnimales().size();
+            int sectorCapacidad = sector.getCapacidad();
+            
+            // Obtenemos el nombre de la clase del primer animal en "Animales"
+            String sectorEspeciesTipo;
+            
+            if(sectorCantidadAnimales > 0){
+               sectorEspeciesTipo = sector.getAnimales().get(0).getClass().getName();
+               
+               if(sectorEspeciesTipo.endsWith("Animal")){
+                   // Obtener nombre de la clase de la especie del primer animal
+                   Animal primerAnimal = (Animal) sector.getAnimales().get(0);
+                   
+                   sectorEspeciesTipo = primerAnimal.getEspecie().getClass().getName().substring(14);
+               }
+            } else 
+            if(sectorCantidadAnimales == 0){
+                sectorEspeciesTipo = "Sector Vacio";
+            } else {
+                System.out.println("""
+                                   How it is possible?
+                                   """);
+                continue;
+            }
+            
+            String sectorEncargadoNombre = sector.getEncargado().getNombre();
+            
+            String opcion1 = String.format(
+                    formatoOpcion, 
+                    sectorNumero,
+                    sectorCantidadAnimales,
+                    sectorCapacidad,
+                    sectorEspeciesTipo,
+                    sectorEncargadoNombre
+            );
+            
+            String opcion = "<html><body>" + sectorNumero + ". Capacidad: " + sectorCantidadAnimales + " / " + sectorCapacidad + "<br>"
+                    + "Especies con dieta: " + sectorEspeciesTipo + "<br>"
+                    + "A cargo de " + sectorEncargadoNombre + "<br><br>"
+                    + "</body></html>";
+            
+            modelo.addElement(opcion);
+        }
+        
+        sectorComboBox.setModel(modelo);
     }
     /////////////////////////////////////////////////////////////////////////////////////
     
@@ -108,12 +177,20 @@ public class AgregarAnimal extends javax.swing.JFrame {
 
         especieComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         especieComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        especieComboBox.setToolTipText("Nombre de la especie (Dieta)");
 
         edadLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         edadLabel.setForeground(new java.awt.Color(255, 255, 255));
         edadLabel.setText("Edad");
 
         edadTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        edadTextField.setText("2");
+        edadTextField.setToolTipText("La edad debe ser un numero entero");
+        edadTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edadTextFieldActionPerformed(evt);
+            }
+        });
 
         edadLabelAños.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         edadLabelAños.setForeground(new java.awt.Color(255, 255, 255));
@@ -124,6 +201,8 @@ public class AgregarAnimal extends javax.swing.JFrame {
         pesoLabelKilos.setText("kilos");
 
         pesoTextField.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        pesoTextField.setText("20.0");
+        pesoTextField.setToolTipText("Puede ser cualquier valor positivo");
 
         pesoLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         pesoLabel.setForeground(new java.awt.Color(255, 255, 255));
@@ -151,9 +230,10 @@ public class AgregarAnimal extends javax.swing.JFrame {
         sectorLabel.setText("Sector");
 
         sectorComboBox.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        sectorComboBox.setMaximumRowCount(1500);
         sectorComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         sectorComboBox.setToolTipText("");
-        sectorComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sectorComboBox.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sectorComboBox.setName(""); // NOI18N
         sectorComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -192,7 +272,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
                         .addComponent(paisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         nuevoAnimalPanelLayout.setVerticalGroup(
             nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +280,8 @@ public class AgregarAnimal extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(sectorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81)
+                .addComponent(sectorComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                         .addComponent(pesoLabel)
@@ -224,20 +304,22 @@ public class AgregarAnimal extends javax.swing.JFrame {
                 .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGap(54, 54, 54))
         );
+
+        sectorComboBox.getAccessibleContext().setAccessibleName("sectorComboBox");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(nuevoAnimalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -246,6 +328,10 @@ public class AgregarAnimal extends javax.swing.JFrame {
     private void confirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarActionPerformed
         dispose();
     }//GEN-LAST:event_confirmarActionPerformed
+
+    private void edadTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edadTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edadTextFieldActionPerformed
 
     private void sectorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectorComboBoxActionPerformed
         // TODO add your handling code here:

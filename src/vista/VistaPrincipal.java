@@ -4,12 +4,9 @@
  */
 package vista;
 
-import modelo.Pais;
 import modelo.Paises;
-import modelo.Especie;
-import modelo.EspecieCarnivora;
-import modelo.EspecieHerbivora;
 import modelo.Especies;
+import modelo.Sectores;
 /**
  *
  * @author Dilan
@@ -17,14 +14,19 @@ import modelo.Especies;
 public class VistaPrincipal extends javax.swing.JFrame {
     private Paises listaPaises;
     private Especies listaEspecies;
+    private Sectores listaSectores;
     
     /**
      * Creates new form Vista_Principal
+     * @param listaPaises
+     * @param listaEspecies
+     * @param listaSectores
      */
     // Constructor
-    public VistaPrincipal(Paises listaPaises, Especies listaEspecies) {
+    public VistaPrincipal(Paises listaPaises, Especies listaEspecies, Sectores listaSectores) {
         this.listaPaises = listaPaises;
         this.listaEspecies = listaEspecies;
+        this.listaSectores = listaSectores;
         initComponents();
         setVisible(true);
     }
@@ -38,6 +40,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.listaEspecies = listaEspecies;
     }
     
+    public void setListaSectores(Sectores listaSectores){
+        this.listaSectores = listaSectores;
+    }
+    
     // Getters
     public Paises getListaPaises(){
         return listaPaises;
@@ -45,6 +51,10 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     public Especies getListaEspecies(){
         return listaEspecies;
+    }
+    
+    public Sectores getListaSectores(){
+        return listaSectores;
     }
     
     /**
@@ -379,7 +389,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void botonNuevoAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonNuevoAnimalActionPerformed
-        AgregarAnimal agregarAnimal = new AgregarAnimal(this.listaPaises, this.listaEspecies);
+        AgregarAnimal agregarAnimal = new AgregarAnimal(this.listaPaises, this.listaEspecies, this.listaSectores);
         agregarAnimal.setVisible(true);
     }//GEN-LAST:event_botonNuevoAnimalActionPerformed
 
