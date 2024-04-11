@@ -68,20 +68,26 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         sectorPanel1 = new javax.swing.JPanel();
-        sectorNumero1 = new javax.swing.JLabel();
-        sectorEspecies1 = new javax.swing.JLabel();
-        sectorCantidadAnimales1 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        labelSector3 = new javax.swing.JLabel();
+        labelEspecies3 = new javax.swing.JLabel();
+        labelCantAnimales3 = new javax.swing.JLabel();
+        labelLatLong3 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
+        labelEncargado3 = new javax.swing.JLabel();
         sectorPanel2 = new javax.swing.JPanel();
-        sectorNumero2 = new javax.swing.JLabel();
-        sectorEspecies2 = new javax.swing.JLabel();
-        sectorCantidadAnimales2 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        labelSector1 = new javax.swing.JLabel();
+        labelEspecies1 = new javax.swing.JLabel();
+        labelCantAnimales1 = new javax.swing.JLabel();
+        labelLatLong1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        labelEncargado1 = new javax.swing.JLabel();
         sectorPanel3 = new javax.swing.JPanel();
-        sectorNumero3 = new javax.swing.JLabel();
-        sectorEspecies3 = new javax.swing.JLabel();
-        sectorCantidadAnimales3 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        labelSector2 = new javax.swing.JLabel();
+        labelEspecies2 = new javax.swing.JLabel();
+        labelCantAnimales2 = new javax.swing.JLabel();
+        labelLatLong2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        labelEncargado2 = new javax.swing.JLabel();
         panelMenu = new javax.swing.JPanel();
         botonNuevoAnimal = new javax.swing.JButton();
         botonCalcularComida = new javax.swing.JButton();
@@ -96,13 +102,17 @@ public class VistaPrincipal extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        sectorNumero1.setText("Nro Sector");
+        labelSector3.setText("Nro Sector");
 
-        sectorEspecies1.setText("Especies");
+        labelEspecies3.setText("Especies");
 
-        sectorCantidadAnimales1.setText("Cantidad de Animales");
+        labelCantAnimales3.setText("Cantidad de Animales");
 
-        jLabel1.setText("\"Latitud, Longitud\"");
+        labelLatLong3.setText("\"Latitud, Longitud\"");
+
+        jButton3.setText("Ver detalles");
+
+        labelEncargado3.setText("Encargado:");
 
         javax.swing.GroupLayout sectorPanel1Layout = new javax.swing.GroupLayout(sectorPanel1);
         sectorPanel1.setLayout(sectorPanel1Layout);
@@ -111,41 +121,57 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGroup(sectorPanel1Layout.createSequentialGroup()
                 .addGroup(sectorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sectorPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(sectorNumero1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addContainerGap()
+                        .addComponent(labelLatLong3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(sectorPanel1Layout.createSequentialGroup()
                         .addContainerGap()
+                        .addComponent(labelEspecies3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(sectorPanel1Layout.createSequentialGroup()
                         .addGroup(sectorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sectorEspecies1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addGroup(sectorPanel1Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(labelSector3))
+                            .addGroup(sectorPanel1Layout.createSequentialGroup()
+                                .addGap(56, 56, 56)
+                                .addComponent(jButton3))
+                            .addGroup(sectorPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelCantAnimales3))
+                            .addGroup(sectorPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelEncargado3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sectorPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(sectorCantidadAnimales1)
-                .addGap(28, 28, 28))
         );
         sectorPanel1Layout.setVerticalGroup(
             sectorPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sectorPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sectorNumero1)
+                .addComponent(labelSector3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorEspecies1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(labelEspecies3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCantAnimales3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sectorCantidadAnimales1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(labelLatLong3)
+                .addGap(18, 18, 18)
+                .addComponent(labelEncargado3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
-        sectorNumero2.setText("Nro Sector");
+        labelSector1.setText("Nro Sector");
 
-        sectorEspecies2.setText("Especies");
+        labelEspecies1.setText("Especies");
 
-        sectorCantidadAnimales2.setText("Cantidad de Animales");
+        labelCantAnimales1.setText("Cantidad de Animales");
 
-        jLabel2.setText("\"Latitud, Longitud\"");
+        labelLatLong1.setText("\"Latitud, Longitud\"");
+
+        jButton1.setText("Ver detalles");
+
+        labelEncargado1.setText("Encargado:");
 
         javax.swing.GroupLayout sectorPanel2Layout = new javax.swing.GroupLayout(sectorPanel2);
         sectorPanel2.setLayout(sectorPanel2Layout);
@@ -154,41 +180,57 @@ public class VistaPrincipal extends javax.swing.JFrame {
             .addGroup(sectorPanel2Layout.createSequentialGroup()
                 .addGroup(sectorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sectorPanel2Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(sectorNumero2)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(sectorPanel2Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(sectorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sectorEspecies2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(labelEspecies1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(labelLatLong1, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)))
+                    .addGroup(sectorPanel2Layout.createSequentialGroup()
+                        .addGroup(sectorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(sectorPanel2Layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(labelSector1))
+                            .addGroup(sectorPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(labelCantAnimales1))
+                            .addGroup(sectorPanel2Layout.createSequentialGroup()
+                                .addGap(59, 59, 59)
+                                .addComponent(jButton1)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sectorPanel2Layout.createSequentialGroup()
-                .addGap(0, 55, Short.MAX_VALUE)
-                .addComponent(sectorCantidadAnimales2)
-                .addGap(28, 28, 28))
+            .addGroup(sectorPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(labelEncargado1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sectorPanel2Layout.setVerticalGroup(
             sectorPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sectorPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sectorNumero2)
+                .addComponent(labelSector1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorEspecies2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sectorCantidadAnimales2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addComponent(labelEspecies1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(labelCantAnimales1)
+                .addGap(18, 18, 18)
+                .addComponent(labelLatLong1)
+                .addGap(18, 18, 18)
+                .addComponent(labelEncargado1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
 
-        sectorNumero3.setText("Nro Sector");
+        labelSector2.setText("Nro Sector");
 
-        sectorEspecies3.setText("Especies");
+        labelEspecies2.setText("Especies");
 
-        sectorCantidadAnimales3.setText("Cantidad de Animales");
+        labelCantAnimales2.setText("Cantidad de Animales");
 
-        jLabel3.setText("\"Latitud, Longitud\"");
+        labelLatLong2.setText("\"Latitud, Longitud\"");
+
+        jButton2.setText("Ver detalles");
+
+        labelEncargado2.setText("Encargado:");
 
         javax.swing.GroupLayout sectorPanel3Layout = new javax.swing.GroupLayout(sectorPanel3);
         sectorPanel3.setLayout(sectorPanel3Layout);
@@ -198,33 +240,44 @@ public class VistaPrincipal extends javax.swing.JFrame {
                 .addGroup(sectorPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(sectorPanel3Layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(sectorNumero3)
+                        .addComponent(labelSector2)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(sectorPanel3Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(labelLatLong2, javax.swing.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE))
+                    .addGroup(sectorPanel3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(sectorPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(labelEspecies2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(sectorPanel3Layout.createSequentialGroup()
+                                .addComponent(labelCantAnimales2)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sectorPanel3Layout.createSequentialGroup()
-                .addGap(0, 55, Short.MAX_VALUE)
-                .addComponent(sectorCantidadAnimales3)
-                .addGap(28, 28, 28))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addGap(55, 55, 55))
             .addGroup(sectorPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sectorEspecies3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(labelEncargado2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         sectorPanel3Layout.setVerticalGroup(
             sectorPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(sectorPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(sectorNumero3)
+                .addComponent(labelSector2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorEspecies3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(sectorCantidadAnimales3)
+                .addComponent(labelEspecies2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel3)
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addComponent(labelCantAnimales2)
+                .addGap(18, 18, 18)
+                .addComponent(labelLatLong2)
+                .addGap(18, 18, 18)
+                .addComponent(labelEncargado2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
         );
 
         panelMenu.setBackground(new java.awt.Color(0, 0, 0));
@@ -338,36 +391,29 @@ public class VistaPrincipal extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(65, 65, 65)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(sectorPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(sectorPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(102, 102, 102)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(sectorPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(sectorPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sectorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(172, 172, 172)
                 .addComponent(panelMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(76, 76, 76))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(65, 65, 65)
-                    .addComponent(sectorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(378, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(174, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(sectorPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(sectorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(69, 69, 69))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129))))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(62, 62, 62)
-                    .addComponent(sectorPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(423, Short.MAX_VALUE)))
+                .addGap(26, 26, 26)
+                .addComponent(sectorPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(sectorPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(sectorPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -380,9 +426,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -400,9 +444,9 @@ public class VistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botonCalcularComida;
     private javax.swing.JButton botonNuevoAnimal;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel kilosCarnivoros;
     private javax.swing.JLabel kilosCarnivorosLabel;
@@ -410,16 +454,22 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel kilosHerbivorosLabel;
     private javax.swing.JLabel kilosTotal;
     private javax.swing.JLabel kilosTotalLabel;
+    private javax.swing.JLabel labelCantAnimales1;
+    private javax.swing.JLabel labelCantAnimales2;
+    private javax.swing.JLabel labelCantAnimales3;
+    private javax.swing.JLabel labelEncargado1;
+    private javax.swing.JLabel labelEncargado2;
+    private javax.swing.JLabel labelEncargado3;
+    private javax.swing.JLabel labelEspecies1;
+    private javax.swing.JLabel labelEspecies2;
+    private javax.swing.JLabel labelEspecies3;
+    private javax.swing.JLabel labelLatLong1;
+    private javax.swing.JLabel labelLatLong2;
+    private javax.swing.JLabel labelLatLong3;
+    private javax.swing.JLabel labelSector1;
+    private javax.swing.JLabel labelSector2;
+    private javax.swing.JLabel labelSector3;
     private javax.swing.JPanel panelMenu;
-    private javax.swing.JLabel sectorCantidadAnimales1;
-    private javax.swing.JLabel sectorCantidadAnimales2;
-    private javax.swing.JLabel sectorCantidadAnimales3;
-    private javax.swing.JLabel sectorEspecies1;
-    private javax.swing.JLabel sectorEspecies2;
-    private javax.swing.JLabel sectorEspecies3;
-    private javax.swing.JLabel sectorNumero1;
-    private javax.swing.JLabel sectorNumero2;
-    private javax.swing.JLabel sectorNumero3;
     private javax.swing.JPanel sectorPanel1;
     private javax.swing.JPanel sectorPanel2;
     private javax.swing.JPanel sectorPanel3;
