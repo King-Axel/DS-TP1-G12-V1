@@ -3,6 +3,7 @@ package modelo;
 public abstract class Especie {
     private String nombre;
 
+    // Constructor
     public Especie(String nombre) {
         this.nombre = nombre;
     }

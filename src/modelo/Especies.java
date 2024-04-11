@@ -28,7 +28,6 @@ public class Especies {
             //Nombre de la clase del objeto recibido, en este caso, claseNombreCompleto podria ser igual a 'modelo.EspecieCarnivora'
             String claseNombre = especiesArray[i].getClass().getName();
             
-            
             if(claseNombre.endsWith("Carnivora") || claseNombre.endsWith("Herbivora")){
                 String dieta = claseNombre.substring(14);
                 

@@ -59,22 +59,14 @@ public class AgregarAnimal extends javax.swing.JFrame {
     public void llenarComboEspecies(Especies listaEspecies){
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
         
-        // FALTA TERMINAR
         for(int i = 0; i < listaEspecies.getEspecies().size(); i++){
             // Obtener el nombre de la clase de la especie iesima
-            String tipoEspecie = listaEspecies.getEspecies().get(i).getClass().getName();
-            String nombreEspecie = "";
+            String tipoEspecie = listaEspecies.getEspecies().get(i).getClass().getName().substring(14);
+            String nombreEspecie = ((Especie) listaEspecies.getEspecies().get(i)).getNombre();
             
-            if(tipoEspecie.endsWith("Carnivoro")){
-                nombreEspecie = nombreEspecie + ((EspecieCarnivora) listaEspecies.getEspecies().get(i)).getNombre();
-            } else
-            if (tipoEspecie.endsWith("Herbivoro")){
-                nombreEspecie = nombreEspecie + ((EspecieHerbivora) listaEspecies.getEspecies().get(i)).getNombre();
-            } else {
-                
-            }
+            String opcion = nombreEspecie + " (" + tipoEspecie + ")";
             
-            modelo.addElement(nombreEspecie);
+            modelo.addElement(opcion);
         }
         
         especieComboBox.setModel(modelo);

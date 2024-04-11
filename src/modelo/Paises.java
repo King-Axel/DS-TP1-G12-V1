@@ -17,6 +17,7 @@ public class Paises {
         this.paises = new ArrayList<>();
     }
     
+    // Metodo
     public void agregarPaises(Pais paisesArray[]){
         System.out.println("Agregando paises al ArrayList<>()");
         

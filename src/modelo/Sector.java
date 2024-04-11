@@ -10,24 +10,26 @@ public class Sector {
     private double longitud;
     private ArrayList<Animal> animales;
 
-    public Sector(int numero, Empleado encargado, int capacidad, double latitud, double longitud, ArrayList<Animal> animales) {
+    public Sector(int numero, Empleado encargado, int capacidad, double latitud, double longitud) {
         this.numero = numero;
         this.encargado = encargado;
         this.capacidad = capacidad;
         this.latitud = latitud;
         this.longitud = longitud;
-        this.animales = animales;
+        this.animales = new ArrayList<>();
     }
 
-   
-
-    public Sector() {
-    }
-    
+    public Sector() {}
     
     // Metodos
-    public void agregarAnimal(Animal animal) {
-        animales.add(animal);
+    public void agregarAnimales(Animal animales[]) {
+        for(Animal animal: animales){
+            this.animales.add(animal);
+        }  
+    }
+    
+    public void agregarAnimal(Animal animal){
+        this.animales.add(animal);
     }
     
     // Setters ///////////////////////////////////

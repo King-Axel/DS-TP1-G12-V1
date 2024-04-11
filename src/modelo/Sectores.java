@@ -6,13 +6,18 @@ public class Sectores {
     private ArrayList<Sector> sectores;
     
     // Constructor
-
-    public Sectores(ArrayList<Sector> sectores) {
-        this.sectores = sectores;
+    public Sectores() {
+        this.sectores = new ArrayList<>();
     }
 
     
     // Metodos
+    public void agregarSectores(Sector sectores[]){
+        for(Sector sector: sectores){
+            this.sectores.add(sector);
+        }
+    }
+    
     public void agregarSector(Sector sector) {
         sectores.add(sector);
     }

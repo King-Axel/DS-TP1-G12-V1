@@ -16,9 +16,6 @@ import vista.VistaPrincipal;
 public class JavaApplication1 {
 
     public static void main(String[] args) {
-        ArrayList<Animal> listaAnimales = new ArrayList<>();
-        ArrayList<Sector> listaSectores = new ArrayList<>();
-        
         Paises listaPaises = new Paises();
         Especies listaEspecies = new Especies();
 
@@ -57,7 +54,7 @@ public class JavaApplication1 {
         Animal animal2 = new Animal(leon, tanzania, 10 , 210);
         
         Animal animal3 = new Animal(jirafa, somalia, 17, 1000, 10);
-        Animal animal4 = new Animal(cebra, sudan, 15 , 370, 5);
+        Animal animal4 = new Animal(cebra, sudan, 15, 370, 5);
                 
         
 //        Creacion de Empleados
@@ -66,15 +63,15 @@ public class JavaApplication1 {
         Empleado empleado3 = new Empleado("Ana Villanueva", 41521457, "Siempre viva 124");
         
 //        Numero de sector, empleado, capacidad, latitud, longitud
-        Sector sector1 = new Sector(1, empleado1, 10, 1235417, 9214712,  listaAnimales);
+        Sector sector1 = new Sector(1, empleado1, 10, 1235417, 9214712);
         sector1.agregarAnimal(animal1);
         sector1.agregarAnimal(animal2);
         
-        Sector sector2 = new Sector(2, empleado2, 10, 6954121, 7945120,  listaAnimales);
+        Sector sector2 = new Sector(2, empleado2, 10, 6954121, 7945120);
         sector2.agregarAnimal(animal3);
         sector2.agregarAnimal(animal4);
         
-        Sector sector3 = new Sector(3, empleado3, 10, 4914171, 4955699,  listaAnimales);
+        Sector sector3 = new Sector(3, empleado3, 10, 4914171, 4955699);
         
 //        ArrayList<Animal> animales = new ArrayList();
 //        animales = sector1.getAnimales();
@@ -87,14 +84,12 @@ public class JavaApplication1 {
 //            System.out.println("Pais de Origen: " + animal.getPaisOrigen().getNombre());
 //        }
         
-        Sectores grupoSectores = new Sectores(listaSectores);
+        Sectores grupoSectores = new Sectores();
         
-        grupoSectores.agregarSector(sector1);
-        grupoSectores.agregarSector(sector2);
-        grupoSectores.agregarSector(sector3);
+        Sector[] sectores = {sector1, sector2, sector3};
+        grupoSectores.agregarSectores(sectores);
         
         VistaPrincipal ventana = new VistaPrincipal(listaPaises, listaEspecies);
-        
     }
     
 }
