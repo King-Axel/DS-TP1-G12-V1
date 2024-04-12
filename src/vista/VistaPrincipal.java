@@ -4,6 +4,7 @@
  */
 package vista;
 
+import javax.swing.JOptionPane;
 import modelo.Paises;
 import modelo.Especies;
 import modelo.Sectores;
@@ -28,6 +29,7 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.listaEspecies = listaEspecies;
         this.listaSectores = listaSectores;
         initComponents();
+        mostrarElementos(listaSectores);
         setVisible(true);
     }
 
@@ -55,6 +57,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
     
     public Sectores getListaSectores(){
         return listaSectores;
+    }
+    
+    public void mostrarElementos(Sectores listaSectores){
+        
+//        labelSector1.setText(listaSectores.getSectores().get(1).toString());
+        JOptionPane.showMessageDialog(null,listaSectores.getSectores().get(1).toString() );
     }
     
     /**
