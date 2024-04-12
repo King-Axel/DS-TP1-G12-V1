@@ -4,6 +4,7 @@
  */
 package vista;
 
+import java.util.ArrayList;
 import modelo.Especie;
 import modelo.Especies;
 import modelo.Paises;
@@ -12,6 +13,7 @@ import modelo.Sectores;
 
 import javax.swing.DefaultComboBoxModel;
 import modelo.Animal;
+import modelo.TipoSector;
 
 /**
  *
@@ -80,14 +82,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
     }
     
     public void llenarComboSectores(Sectores listaSectores){
-        // IN PROGRESS
         DefaultComboBoxModel<String> modelo = new DefaultComboBoxModel<>();
-        
-        String formatoOpcion = """
-                            %d. Capacidad: %s / %s
-                            Especies de tipo: %s
-                            A cargo de %s
-                        """;
         
         for(int i = 0; i < listaSectores.getSectores().size(); i++){
             // Obtener el sector iesimo del ArrayList
@@ -97,48 +92,24 @@ public class AgregarAnimal extends javax.swing.JFrame {
             int sectorCantidadAnimales = sector.getAnimales().size();
             int sectorCapacidad = sector.getCapacidad();
             
-            // Obtenemos el nombre de la clase del primer animal en "Animales"
             String sectorEspeciesTipo;
             
             if(sectorCantidadAnimales > 0){
-               sectorEspeciesTipo = sector.getAnimales().get(0).getClass().getName();
-               
-               if(sectorEspeciesTipo.endsWith("Animal")){
-                   // Obtener nombre de la clase de la especie del primer animal
-                   Animal primerAnimal = (Animal) sector.getAnimales().get(0);
-                   
-                   sectorEspeciesTipo = primerAnimal.getEspecie().getClass().getName().substring(14);
-               }
-            } else 
-            if(sectorCantidadAnimales == 0){
-                sectorEspeciesTipo = "Sector Vacio";
+               sectorEspeciesTipo = sector.getTipo().toString();
             } else {
-                System.out.println("""
-                                   How it is possible?
-                                   """);
-                continue;
+                sectorEspeciesTipo = "Vacio";
             }
             
-            String sectorEncargadoNombre = sector.getEncargado().getNombre();
-            
-            String opcion1 = String.format(
-                    formatoOpcion, 
-                    sectorNumero,
-                    sectorCantidadAnimales,
-                    sectorCapacidad,
-                    sectorEspeciesTipo,
-                    sectorEncargadoNombre
-            );
-            
-            String opcion = "<html><body>" + sectorNumero + ". Capacidad: " + sectorCantidadAnimales + " / " + sectorCapacidad + "<br>"
-                    + "Especies con dieta: " + sectorEspeciesTipo + "<br>"
-                    + "A cargo de " + sectorEncargadoNombre + "<br><br>"
-                    + "</body></html>";
+            String opcion = sectorNumero+ ". " + "Sector " + sectorEspeciesTipo + " (" + sectorCantidadAnimales + "/" + sectorCapacidad + ")";
             
             modelo.addElement(opcion);
         }
         
         sectorComboBox.setModel(modelo);
+    }
+    
+    public void actualizarEspeciesCombobox(String tiposEspeciesSector){
+        
     }
     /////////////////////////////////////////////////////////////////////////////////////
     
@@ -165,6 +136,7 @@ public class AgregarAnimal extends javax.swing.JFrame {
         confirmar = new javax.swing.JButton();
         sectorLabel = new javax.swing.JLabel();
         sectorComboBox = new javax.swing.JComboBox<>();
+        cancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -241,37 +213,48 @@ public class AgregarAnimal extends javax.swing.JFrame {
             }
         });
 
+        cancelar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        cancelar.setText("Cancelar");
+        cancelar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout nuevoAnimalPanelLayout = new javax.swing.GroupLayout(nuevoAnimalPanel);
         nuevoAnimalPanel.setLayout(nuevoAnimalPanelLayout);
         nuevoAnimalPanelLayout.setHorizontalGroup(
             nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(sectorLabel)
-                        .addComponent(paisOrigenLabel)
-                        .addComponent(especieLabel)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoAnimalPanelLayout.createSequentialGroup()
-                            .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                                    .addComponent(edadLabel)
-                                    .addGap(89, 89, 89))
-                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                                    .addComponent(edadTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(edadLabelAños)
-                                    .addGap(18, 18, 18)))
-                            .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
-                                    .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(pesoLabelKilos))
-                                .addComponent(pesoLabel)))
-                        .addComponent(especieComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(paisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(sectorLabel)
+                    .addComponent(paisOrigenLabel)
+                    .addComponent(especieLabel)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nuevoAnimalPanelLayout.createSequentialGroup()
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                .addComponent(edadLabel)
+                                .addGap(89, 89, 89))
+                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                .addComponent(edadTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(edadLabelAños)
+                                .addGap(18, 18, 18)))
+                        .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                                .addComponent(pesoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(pesoLabelKilos))
+                            .addComponent(pesoLabel)))
+                    .addComponent(especieComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(paisOrigenComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(sectorComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
+                        .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         nuevoAnimalPanelLayout.setVerticalGroup(
@@ -280,8 +263,8 @@ public class AgregarAnimal extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(sectorLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sectorComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(sectorComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
                 .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(nuevoAnimalPanelLayout.createSequentialGroup()
                         .addComponent(pesoLabel)
@@ -303,7 +286,9 @@ public class AgregarAnimal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(paisOrigenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(nuevoAnimalPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(confirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(54, 54, 54))
         );
 
@@ -334,10 +319,39 @@ public class AgregarAnimal extends javax.swing.JFrame {
     }//GEN-LAST:event_edadTextFieldActionPerformed
 
     private void sectorComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sectorComboBoxActionPerformed
-        // TODO add your handling code here:
+        String seleccion = (String) sectorComboBox.getSelectedItem();
+        String numeroSectorString = "";
+        
+        // Obtencion del nro de sector
+        for(int i = 0; seleccion.charAt(i) != '.'; i++){
+            numeroSectorString += seleccion.charAt(i);
+        }
+        
+        // Transformacion del nro de sector a int
+        int numeroSector = Integer.parseInt(numeroSectorString);
+        
+        // Obtencion del tipo de especies que hay en ese sector
+        ArrayList<Sector> sectores = listaSectores.getSectores();
+        
+        String tiposEspeciesSector;
+        
+        for(Sector sector: sectores){
+            if(sector.getNumero() == numeroSector){
+                tiposEspeciesSector = sector.getTipo().toString();
+                System.out.println(tiposEspeciesSector);
+                break;
+            }
+        }
+        
+        actualizarEspeciesComboBox(tiposEspeciesSector);
     }//GEN-LAST:event_sectorComboBoxActionPerformed
 
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_cancelarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton confirmar;
     private javax.swing.JLabel edadLabel;
     private javax.swing.JLabel edadLabelAños;

@@ -11,6 +11,7 @@ import modelo.Pais;
 import modelo.Paises;
 import modelo.Sector;
 import modelo.Sectores;
+import modelo.TipoSector;
 import vista.VistaPrincipal;
 
 public class JavaApplication1 {
@@ -63,15 +64,15 @@ public class JavaApplication1 {
         Empleado empleado3 = new Empleado("Ana Villanueva", 41521457, "Siempre viva 124");
         
 //        Numero de sector, empleado, capacidad, latitud, longitud
-        Sector sector1 = new Sector(1, empleado1, 10, 1235417, 9214712);
+        Sector sector1 = new Sector(1, empleado1, 10, 1235417, 9214712, TipoSector.CARNIVOROS);
         sector1.agregarAnimal(animal1);
         sector1.agregarAnimal(animal2);
         
-        Sector sector2 = new Sector(2, empleado2, 10, 6954121, 7945120);
+        Sector sector2 = new Sector(2, empleado2, 10, 6954121, 7945120, TipoSector.HERBIVOROS);
         sector2.agregarAnimal(animal3);
         sector2.agregarAnimal(animal4);
         
-        Sector sector3 = new Sector(3, empleado3, 10, 4914171, 4955699);
+        Sector sector3 = new Sector(3, empleado3, 10, 4914171, 4955699, TipoSector.CARNIVOROS);
         
 //        ArrayList<Animal> animales = new ArrayList();
 //        animales = sector1.getAnimales();
